@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>하루 수분 섭취량 계산기 | Livin Balance</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f7fafc;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .logo {
+      margin-top: 40px;
+      max-width: 220px;
+    }
+    .container {
+      background: #ffffff;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 90%;
+    }
+    h1 {
+      text-align: center;
+      color: #1a202c;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.25rem;
+      border-radius: 0.5rem;
+      border: 1px solid #cbd5e0;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #2b6cb0;
+      color: white;
+      border: none;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #result {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #2d3748;
+    }
+    footer {
+      font-size: 0.75rem;
+      color: #a0aec0;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="Livin Balance Logo" class="logo" />
+  <div class="container">
+    <h1>💧 수분 섭취량 계산기</h1>
+    <form id="hydrationForm">
+      <label for="gender">성별</label>
+      <select id="gender">
+        <option value="male">남성</option>
+        <option value="female">여성</option>
+      </select>
+
+      <label for="age">나이</label>
+      <input type="number" id="age" required />
+
+      <label for="weight">몸무게 (kg)</label>
+      <input type="number" id="weight" required />
+
+      <label for="exercise">운동 시간 (분)</label>
+      <input type="number" id="exercise" required />
+
+      <button type="submit">하루 수분 섭취량 계산하기</button>
+    </form>
+    <div id="result"></div>
+  </div>
+  <footer>© 2025 Livin Balance</footer>
+  <script>
+    document.getElementById('hydrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const weight = parseFloat(document.getElementById('weight').value);
+      const exercise = parseFloat(document.getElementById('exercise').value);
+      const base = weight * 35;
+      const exerciseExtra = exercise * 12;
+      const total = Math.round(base + exerciseExtra);
+      document.getElementById('result').innerHTML = `🥤 하루 권장 수분 섭취량은 <strong>${total}ml</strong> 입니다.`;
+    });
+  </script>
+</body>
+</html>
