@@ -60,6 +60,10 @@
       text-align: center;
       color: #2d3748;
     }
+    #cta {
+      text-align: center;
+      margin-top: 1rem;
+    }
     footer {
       font-size: 0.75rem;
       color: #a0aec0;
@@ -91,6 +95,7 @@
       <button type="submit">하루 수분 섭취량 계산하기</button>
     </form>
     <div id="result"></div>
+    <div id="cta"></div>
   </div>
   <footer>© 2025 Livin Balance</footer>
   <script>
@@ -102,6 +107,16 @@
       const exerciseExtra = exercise * 12;
       const total = Math.round(base + exerciseExtra);
       document.getElementById('result').innerHTML = `🥤 하루 권장 수분 섭취량은 <strong>${total}ml</strong> 입니다.`;
+      document.getElementById('cta').innerHTML = `
+        <p style="margin-top: 1.5rem; font-size: 1rem;">
+          그냥 물? 이젠 스마트하게, 맛있게 수분 보충하세요.<br />
+          <em style="color:#4a5568;">맛있으면, 더 자주 마시게 되니까요.</em>
+        </p>
+        <a href="https://livinbalance.kr" target="_blank"
+           style="display:inline-block; margin-top:1rem; background:#2b6cb0; color:white; padding:0.75rem 1.25rem; border-radius:8px; text-decoration:none; font-weight:bold;">
+           어떤 맛인지 궁금하다면
+        </a>
+      `;
     });
   </script>
 </body>
